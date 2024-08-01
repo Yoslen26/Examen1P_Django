@@ -1,0 +1,9 @@
+class Futbolista:
+    def __init__(self):
+        self.cedula = ""
+        self.nombres = ""
+        self.apellidos = ""
+        self.fecha_nacimiento = None
+        self.pais = ""
+        self.direccion = ""
+        self.descripcion = ""

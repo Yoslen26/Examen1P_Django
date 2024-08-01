@@ -1,0 +1,33 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/api/futbolista', methods=['GET'])
+def get_futbolistas():
+    futbolistas = ConexionBD.GetFutbolistas()
+    return jsonify(futbolistas)
+
+@app.route('/api/futbolista/<cedula>', methods=['GET'])
+def get_futbolista(cedula):
+    futbolista = ConexionBD.GetFutbolista(cedula)
+    return jsonify(futbolista)
+
+@app.route('/api/futbolista', methods=['POST'])
+def post_futbolista():
+    objJugador = request.json
+    ConexionBD.PostFutbolista(objJugador)
+    return "Futbolista creado", 201
+
+@app.route('/api/futbolista/<cedula>', methods=['PUT'])
+def put_futbolista(cedula):
+    objJugador = request.json
+    ConexionBD.PutFutbolista(cedula, objJugador)
+    return "Futbolista actualizado", 200
+
+@app.route('/api/futbolista/<cedula>', methods=['DELETE'])
+def delete_futbolista(cedula):
+    ConexionBD.DeleteFutbolista(cedula)
+    return "Futbolista eliminado", 200
+
+if __name__ == '__main__':
+    app.run()

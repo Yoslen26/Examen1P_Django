@@ -1,0 +1,16 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/api/historicoequipos/<cedula>', methods=['GET'])
+def get_historico_equipos(cedula):
+    historico_equipos = ConexionBD.GetHistoricoEquipos(cedula)
+    return jsonify(historico_equipos)
+
+@app.route('/api/historicoequipos/<id>', methods=['PUT'])
+def put_value(id):
+    value = request.json
+    return "Valor actualizado", 200
+
+if __name__ == '__main__':
+    app.run()

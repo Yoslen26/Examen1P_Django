@@ -1,0 +1,10 @@
+class Equipos:
+    def __init__(self):
+        self.id_equipo = 0
+        self.nombre_equipo = ""
+        self.descripcion = ""
+        self.numero_jugadores = ""
+        self.pais = ""
+        self.faltas = ""
+        self.fecha_inicio = ""
+        self.fecha_fin = ""

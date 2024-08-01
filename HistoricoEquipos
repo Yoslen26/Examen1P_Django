@@ -1,0 +1,6 @@
+class HistoricoEquipos:
+    def __init__(self):
+        self.nombres = ""
+        self.nombre_equipo = ""
+        self.fecha_inicio = ""
+        self.fecha_fin = ""
